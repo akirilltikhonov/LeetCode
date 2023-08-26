@@ -1,20 +1,20 @@
 package easy.twoSum;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Solution {
 
-    public static String twoSum(int n, int[] count, int k) {
-        Set<Integer> set = new HashSet<>();
-        for (int i = 0; i < n; i++) {
-            int dif = k - count[i];
-            if (set.contains(dif)) {
-                return count[i] + " " + dif;
+    public int[] twoSum(int[] nums, int target) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            int dif = target - nums[i];
+            if (map.containsKey(dif)) {
+                return new int[]{map.get(dif), i};
             } else {
-                set.add(count[i]);
+                map.put(nums[i], i);
             }
         }
-        return "None";
+        return null;
     }
 }
