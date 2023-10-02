@@ -1,4 +1,4 @@
-package easy.twoSum;
+package easy.q1TwoSum;
 
 import java.util.HashMap;
 import java.util.Map;

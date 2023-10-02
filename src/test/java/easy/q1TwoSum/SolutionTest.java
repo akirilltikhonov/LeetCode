@@ -1,4 +1,4 @@
-package easy.twoSum;
+package easy.q1TwoSum;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
