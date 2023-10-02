@@ -5,8 +5,8 @@ class Solution {
         int unique = 1;
         for (int i = 1; i < nums.length; i++) {
             if (nums[i] != nums[i - 1]) {
-                unique++;
                 nums[unique] = nums[i];
+                unique++;
             }
         }
         return unique;
