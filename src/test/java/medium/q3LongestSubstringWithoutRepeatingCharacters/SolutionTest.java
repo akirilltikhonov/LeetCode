@@ -17,6 +17,7 @@ class SolutionTest {
                 Arguments.of("abcabcbb", 3)
                 , Arguments.of("bbbbb", 1)
                 , Arguments.of("pwwkew", 3)
+                , Arguments.of("tmmzuxt", 5)
         );
     }
 

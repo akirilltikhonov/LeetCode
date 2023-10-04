@@ -1,25 +1,22 @@
 package medium.q3LongestSubstringWithoutRepeatingCharacters;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Solution {
     public int lengthOfLongestSubstring(String s) {
         char[] chars = s.toCharArray();
-        Set<Character> set = new HashSet<>();
+        Map<Character, Integer> map = new HashMap<>();
 
         int l = 0;
         int max = 0;
         for (int r = 0; r < chars.length; r++) {
-            if (!set.contains(chars[r])) {
-                set.add(chars[r]);
+            if (!map.containsKey(chars[r]) || map.get(chars[r]) < l) {
+                map.put(chars[r], r);
                 max = Math.max(max, r - l + 1);
             } else {
-                while (set.contains(chars[r])) {
-                    set.remove(chars[l]);
-                    l++;
-                }
-                set.add(chars[r]);
+                l = map.get(chars[r]) + 1;
+                map.put(chars[r], r);
             }
         }
         return max;
