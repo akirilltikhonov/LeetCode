@@ -9,19 +9,14 @@ public class Solution {
 
     public int evalRPN(String[] tokens) {
         Stack<Integer> ints = new Stack<>();
-        Stack<String> signs = new Stack<>();
         for (String token : tokens) {
             if (set.contains(token)) {
-                signs.push(token);
-            } else {
-                ints.push(Integer.valueOf(token));
-            }
-
-            while (ints.size() > 1 && !signs.isEmpty()) {
                 int int2 = ints.pop();
                 int int1 = ints.pop();
-                int res = operate(int1, int2, signs.pop());
+                int res = operate(int1, int2, token);
                 ints.push(res);
+            } else {
+                ints.push(Integer.valueOf(token));
             }
         }
         return ints.pop();
